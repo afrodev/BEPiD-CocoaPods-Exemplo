@@ -14,18 +14,23 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let rect = CGRect(x: 10, y: 10, width: 100, height: 100)
+        // Pra deixar tudo bem centralizado
+        let sizeXY = 80.0
+        let newX = Double(self.view.frame.size.width / 2) - (sizeXY / 2)
+        let newY = Double(self.view.frame.size.height / 2) - (sizeXY / 2)
         
-        let activity = NVActivityIndicatorView(frame: rect)
-        activity.color = UIColor.blueColor()
+        let frame = CGRect(x: newX, y: newY, width: sizeXY, height: sizeXY)
+        
+        // Inicializa o NVActivityIndicatorView
+        let activity = NVActivityIndicatorView(frame: frame)
         activity.type = .BallClipRotate
+        activity.color = UIColor.redColor()
         
+        // Coloca na tela
         self.view.addSubview(activity)
         
+        // Inicializa a animação
         activity.startAnimation()
-        
-        UIImage(named: "aaa")
-        
         
         
         // Do any additional setup after loading the view, typically from a nib.
